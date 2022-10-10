@@ -13,16 +13,21 @@ across a term that you don't know or doesn't seem to make sense.
 
 *aggregate*: Either an array, a structure, or a union.
 
+*area*: A chunk of memory that serves as a subsidiary heap.
+Storage may be allocated from the main heap or within an area.
+If an area is freed, all the storage allocated from it is freed too.
+
 *attribute*: A type, storage class, or other property of a
 variable or named constant.  There are 45 attributes in PL/I.
 
 *arithmetic type*: A binary fixed (integer), decimal fixed,
 binary float, or decimal float numeric type.  The decimal
 types use base-10 digits rather than base-2 bits to represent
-the values.
+the values.  Picture data is also of an arithmetic type.
 
-*base element*: A member of a strcture or union that is not
-itself a structure or union.
+*based variable*: A storage class for a variable that isn't
+statically or automatically allocated.  Its storage can be
+allocated and deallocated dynamically from the heap.
 
 *begin-block*: A sequence of statements starting with BEGIN
 and ending with END.  Usually a begin-block begins with some
@@ -38,15 +43,15 @@ of an array.  An array a(3:5) has bounds of 3 and 5 in the first
 (and only) dimension.  If the lower bound is missing, it is 1,
 so A(2) is the same as A(1:2).
 
-*built-in function*:  One of a list of functions that are a
-built-in part of PL/I.  They don't have to be declared but can be.
+*built-in function*:  One of a list of 83 functions that are a
+built-in part of PL/I.  They don't have to be declared, but can be.
 
 *computational*:  A computational type is either an arithmetic type
 
 *constant*: Either a literal value (computational or string),
-such as 1335, 133.5, 13.35e2, 'character string', or '1010'B,
-or a name declared by a DECLARE or DEFINE CONSTANT statement
-whose value is specified by a VALUE attribute.
+such as `1335`, `133.5`, `13.35e2`, `'character string'`, or `'1010'B`,
+or a name declared by a `DECLARE` or `DEFINE CONSTANT` statement
+whose value is specified by a `VALUE` attribute.
 
 *data attribute*: An attribute specifying a data type.
 
@@ -61,25 +66,46 @@ expressions (for `PUT EDIT`), and then another list of
 format items that specify how each variable is to be
 read or expression is to be written.
 
-*format item*:
+*format item*: A specification of how a 
 
-*level number*:
+*level number*:  Because braces are not used in PL/I,
+the name of a top-level structure is prefixed by 1
+and its members are prefixed by 2.  If a member at
+level 2 is itself a structure or union, it is prefixed
+by 3, and so on.  The numbers 1, 2, 3 do not have to be
+consecutive: 10, 20, 30 is equivalent.
 
-*locator variable*:
+*list-directed I/O*: 
 
-*name*:
+*locator variable*:  Either a pointer or an offset.
 
 *major structure, minor structure*:
+A major structure is a top-level structure; a minor
+structure is a member of a major or minor structure.
+The same terminology applies to unions.
 
-*name*:
+*name*:  Either a variable or a named constant.
+Names are declared using a `DECLARE` or `DEFINE CONSTANT`
+statement; a statement label is also a constant,
+as are the file constants `sysin` and `sysout`.
 
-*offset*:
+*offset*:  A data type similar to a pointer,
+but rather than being absolute, it is relative to an area.
+It is possible to copy an area and then use offsets to
+refer to objects allocated within either area.
 
-*parameter*:
+*picture data*:  Fixed decimal data which has a particular
+character string representation.
+If a variable foo is declared as either
+`FIXED DECIMAL(5,2) or `PICTURE '$-999V99'`,
+it has a range of -999.99 to 999.99 inclusive,
+but the picture data has a character string representation
+from `$-999.99` to `$0` to `$999.99`,
+depending on its numeric value.
 
-*picture data*:
-
-*REFER expression:*
+*pointer*:  An untyped reference to an object allocated
+on the heap.  In order to use a pointer `p`, it is necessary
+to specify a based variable which gives its type.
 
 *string*:  Either a character string or a bit string.
 There are a number of functions that operate on either kind
@@ -87,4 +113,3 @@ of string: for example, `SUBSTR('foobar', 1, 4)` is the
 character string `foob`, whereas `SUBSTR('101001'B, 1, 4)
 is the bit string `'1010'B`.
 
-*zero suppression*:
