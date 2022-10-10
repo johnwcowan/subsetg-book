@@ -26,7 +26,7 @@ been extended over time with many new features unique to itself.
 This book is based on the 1987 standard; unless otherwise specified,
 "PL/I" in this book means this version of the language.
 
-# Who is the audience for this book?
+## Who is the audience for this book?
 
 This book is intended to be understandable by someone who doesn't know
 any PL/I. However, it is not — and is not intended to be — a primer
@@ -52,3 +52,69 @@ many tears. The dictionary section spells out the detail for each
 of the large number of features of the language, large primarily
 because the line between "the language" and "the library" is set
 further out than in most languages today.
+
+## Hello, world!
+
+Here's the familiar first program written in PL/I.  There are many
+possible ways to write it: this is not the shortest, but I believe
+it is the most illustrative without being too complicated.
+
+```
+hello_world: PROCEDURE OPTIONS(MAIN);
+  PUT EDIT ('Hello, world!') (A, SKIP)
+    FILE(sysprint);
+END;
+```
+
+If you compile and run this program, it will send
+`Hello, world!` to the standard output.
+Let's look at this program token by token:
+
+ * PL/I keywords are written in capital letters.
+   This is not a requirement of the language,
+   but a convention used in this book.  PL/I does
+   not distinguish identifiers by case, so the variables
+   `FOO` and `foo` are the same thing.
+   
+ * Each statement ends in a semicolon, and line breaks and
+   whitespace separate tokens but otherwise are ignored.
+   PL/I was the first language to follow these conventions.
+   
+ * A procedure is PL/I's equivalent of a function or class method.
+   PL/I does not have classes or instance methods.
+   The name of a procedure is given using a label; that is, an
+   identifier followed by a colon.
+   
+ * `OPTIONS(MAIN)` indicates that this is the main procedure.
+   For this reason, in PL/I it does not have to have any specific name.
+   `OPTIONS(MAIN)` is not strictly part of Subset G,
+   but all PL/I compilers understand it.
+   
+ * The `PUT EDIT` statement performs formatted output,
+   like the `printf` function.
+   PL/I I/O is done using statements, not function calls.
+   A `PUT EDIT` statement takes two lists in parentheses,
+   one being the expressions to be output, and the other
+   the format items which show how to to output them.
+   
+ * `A` is a format item used to output a character string.
+   If `A` were replaced by `A(5)`, then only the first five
+   characters would be output, and the program would output
+   just `Hello`.
+   
+ * `SKIP` is another format item which does not match any
+   expression in the first parenthesized list.  It will output
+   a line break, either a single character on a Posix system or
+   a CR+LF on Windows.  Using a format item rather than putting
+   the character into the string produces the correct results
+   on either kind of system.
+   
+ * `FILE` specifies which stream the `PUT EDIT` statement sends
+   its output to.  The identifier `sysprint` is the name of the
+   standard output.  It is one of only two identifiers that does
+   not have to be declared before it is used, the other being
+   `sysin`, the name of the standard input.
+   
+   
+   
+   
