@@ -54,9 +54,14 @@ whose value is specified by a VALUE attribute.
 
 *do-group, do-loop*:
 
-*edit-directed*:
+*edit-directed I/O*: Formatted I/O as performed by the
+`GET EDIT` and `PUT EDIT` statements.  These statements
+contain a list of variables (for `GET EDIT`) or
+expressions (for `PUT EDIT`), and then another list of
+format items that specify how each variable is to be
+read or expression is to be written.
 
-*format, format list*:
+*format item*:
 
 *level number*:
 
@@ -68,12 +73,18 @@ whose value is specified by a VALUE attribute.
 
 *name*:
 
+*offset*:
+
 *parameter*:
 
 *picture data*:
 
 *REFER expression:*
 
-*string*:
+*string*:  Either a character string or a bit string.
+There are a number of functions that operate on either kind
+of string: for example, `SUBSTR('foobar', 1, 4)` is the
+character string `foob`, whereas `SUBSTR('101001'B, 1, 4)
+is the bit string `'1010'B`.
 
 *zero suppression*:
