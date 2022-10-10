@@ -1,6 +1,6 @@
 ## What does that mean?  No, wait, I _know_ what that means, and ...
 
-This glossary is not comprehensive, on purpose.  There's no real
+This glossary is deliberately not comprehensive.  There's no real
 reason to define *statement*, because it means the same thing
 in PL/I as in one of the languages you already know.  On the
 other hand, *string* is another matter: in Pl/I it can refer
@@ -29,24 +29,27 @@ the values.  Picture data is also of an arithmetic type.
 statically or automatically allocated.  Its storage can be
 allocated and deallocated dynamically from the heap.
 
-*begin-block*: A sequence of statements starting with BEGIN
-and ending with END.  Usually a begin-block begins with some
+*begin-block*: A sequence of statements starting with `BEGIN`
+and ending with `END`.  Usually a begin-block begins with some
 declarations, which are otherwise only allowed at the
 beginning of a procedure.
 
 *bit string*: A sequence of bits.  There are several ways to
-write such a string: '1011011011101010'B (binary) =
-'23123222'B2 (ternary) = '133352'B3 (octal) = 'B6EA'B4 (hex).
+write such a string: `'1011011011101010'B` (binary) =
+`'23123222'B2` (ternary) = `'133352'B3` (octal) = `'B6EA'B4` (hex).
 
 *bounds*: The lowest and highest possible values of any dimension
-of an array.  An array a(3:5) has bounds of 3 and 5 in the first
+of an array.  An array `a(3:5)` has bounds of 3 and 5 in the first
 (and only) dimension.  If the lower bound is missing, it is 1,
-so A(2) is the same as A(1:2).
+so `a(5)` is the same as `a(1:5)`.  This is different from
+other languages, where the lower bound is always 0 and the upper
+bound is 1 less than the length, so that `a[5]` has bounds of 0 and 4.
 
 *built-in function*:  One of a list of 83 functions that are a
 built-in part of PL/I.  They don't have to be declared, but can be.
 
 *computational*:  A computational type is either an arithmetic type
+or a string type.
 
 *constant*: Either a literal value (computational or string),
 such as `1335`, `133.5`, `13.35e2`, `'character string'`, or `'1010'B`,
@@ -97,19 +100,19 @@ refer to objects allocated within either area.
 *picture data*:  Fixed decimal data which has a particular
 character string representation.
 If a variable foo is declared as either
-`FIXED DECIMAL(5,2) or `PICTURE '$-999V99'`,
+`FIXED DECIMAL(5,2)` or `PICTURE '$-999V99'`,
 it has a range of -999.99 to 999.99 inclusive,
 but the picture data has a character string representation
 from `$-999.99` to `$0` to `$999.99`,
 depending on its numeric value.
 
 *pointer*:  An untyped reference to an object allocated
-on the heap.  In order to use a pointer `p`, it is necessary
+on the heap.  In order to use a pointer, it is necessary
 to specify a based variable which gives its type.
 
 *string*:  Either a character string or a bit string.
 There are a number of functions that operate on either kind
 of string: for example, `SUBSTR('foobar', 1, 4)` is the
-character string `foob`, whereas `SUBSTR('101001'B, 1, 4)
+character string `foob`, whereas `SUBSTR('101001'B, 1, 4)`
 is the bit string `'1010'B`.
 
