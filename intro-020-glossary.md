@@ -142,9 +142,9 @@ of string: for example, `SUBSTR('foobar', 1, 4)` is the
 character string `foob`, whereas `SUBSTR('101001'B, 1, 4)`
 is the bit string `'1010'B`.
 
-*¬*: The logical "not" symbol, the only non-ASCII character
+`¬`: The logical "not" symbol, the only non-ASCII character
 used in PL/I.  As a unary operator, it means "not"; as a binary
 operator, it means "exclusive or".  It can also be used in
 the relational operators `¬=`, `¬<`, and `¬<`, which are equivalent
-to `<>`, `>=`, and `<=`.
+to `<>`, `>=`, and `<=`.  The usual ASCII equivalent is `^`.
 
