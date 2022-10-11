@@ -43,6 +43,10 @@ By the same token, the `F(17,2)` format item specifies that exactly
 and there will be exactly 2 digits to the right of the decimal point.
 The output will be left-padded with blanks.
 
+(The `PUT EDIT` statement in the `hello_world` procedure specified
+`FILE(sysprint)` in order to write to the standard output.
+That's the default, so I've left it out here.)
+
 Here's a more complex example. There are a few new things here,
 notably the use of a do-group to have more than one statement
 after `THEN` or `ELSE`:
@@ -71,14 +75,13 @@ will be set to whatever the new balance will be.  PL/I supports procedures
 that return a value, but by using this approach, any number of values
 can be returned.  As a matter of style, a procedure should not use both methods.
 
-Note also that the line break within the string is completely ignored, so we
-need a space before "your new balance".
-
+(A line break within a character string is completely ignored, so I added
+a space before "your new balance".)
 
 ## The `SELECT` statement
 
 The `SELECT` statement is the analogue of `switch` in other languages.
-There are two formats, one with a value after `SWITCH` and one without.
+There are two formats, one with a value after `SELECT` and one without.
 
 ## First `SELECT` format
 
@@ -97,7 +100,7 @@ SELECT(language);
 END;
 ```
 
-We can use the `ANY` keyword to allow multiple values in a `WHEN` clause..
+We can use the `ANY` keyword to allow multiple values in a `WHEN` clause.
 
 ```
 SELECT(i)
@@ -142,10 +145,13 @@ SELECT;
 END;
 ```
 
-Note that just as in `switch` statements, the `WHEN` clauses are
+Just as in `switch` statements, the `WHEN` clauses are
 tested in order, so that the `WHEN ANY` clause is never checked
 if both a and b are negative.
 
 If you need more than one statement in a `WHEN` clause,
 wrap them in a do-group.
+
+It's legal, but unusual, to use an `ALL` clause
+in the first format.
 
