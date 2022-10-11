@@ -75,4 +75,77 @@ Note also that the line break within the string is completely ignored, so we
 need a space before "your new balance".
 
 
-  
+## The `SELECT` statement
+
+The `SELECT` statement is the analogue of `switch` in other languages.
+There are two formats, one with a value after `SWITCH` and one without.
+
+##@ First `SELECT` format
+
+```
+SELECT(language);
+  WHEN (1)
+    language_name = 'C';
+  WHEN (2)
+    language_name = 'C++';
+  WHEN (3)
+    language_name = 'Java';
+  WHEN (4)
+    language_name = 'C#';
+  OTHERWISE
+    language_name = 'Not a C-family language';
+END;
+```
+
+We can use the `ANY` keyword to allow multiple values in a `WHEN` clause..
+
+```
+SELECT(i)
+  WHEN ANY(1, 2, 3)
+    PUT EDIT ('One, two, or three') (A, SKIP);
+  WHEN ANY(4)
+    PUT EDIT ('Four') (A, SKIP);
+  WHEN ANY(5, 6, 7)
+    PUT EDIT ('Five, six, or seven') (A, SKIP);
+END:
+```
+
+Note that instead of `ANY(4)` we could use just `(4)`.
+
+### Second `SELECT` format
+
+If there is no value after the `SELECT` keyword`, the
+`WHEN` clauses are booleans:
+
+```
+SELECT;
+  WHEN (b < 0)
+    PUT EDIT ('b is negative') (A, SKIP);
+  WHEN (b > 0)
+    PUT EDIT ('b is positive') (A, SKIP);
+  OTHERWISE
+    PUT EDIT ('b is zero') (A, SKIP);
+END;
+```
+
+We can use the `ANY` and `ALL` keywords:
+
+```
+SELECT;
+  WHEN ALL(a < 0, b < 0)
+    PUT EDIT ('a and b are both negative') (A, SKIP);
+  WHEN ANY (a < 0, b < 0)
+    PUT EDIT ('a is negative or b is negative, but not both')
+             (A, SKIP);
+  OTHERWISE
+    PUT EDIT ('neither a nor b is negative') (A, SKIP);
+END;
+```
+
+Note that just as in `switch` statements, the `WHEN` clauses are
+tested in order, so that the `WHEN ANY` clause is never checked
+if both a and b are negative.
+
+If you need more than one statement in a `WHEN` clause,
+wrap them in a do-group.
+
