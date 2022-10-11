@@ -52,13 +52,17 @@ built-in part of PL/I.  They don't have to be declared, but can be.
 or a string type.
 
 *constant*: Either a literal value (computational or string),
-such as `1335`, `133.5`, `13.35e2`, `'character string'`, or `'1010'B`,
-or a name declared by a `DECLARE` or `DEFINE CONSTANT` statement
+such as `1335`, `133.5`, `13.35e2`, `'character string'`, or `'1010'B`
+(note that character strings are surrounded by apostrophes, not
+quotation marks),
+or else a name declared by a `DECLARE` or `DEFINE CONSTANT` statement
 whose value is specified by a `VALUE` attribute.
 
 *data attribute*: An attribute specifying a data type.
 
-*defined variable*: 
+*defined variable*: Yet another storage class.  A defined
+variable is one that occupies the same storage as another
+variable.  Analogous to, but not the same as, a union.
 
 *do-group, do-loop*:
 
@@ -69,7 +73,11 @@ expressions (for `PUT EDIT`), and then another list of
 format items that specify how each variable is to be
 read or expression is to be written.
 
-*format item*: A specification of how a 
+*format item*: A specification of how a value is read or
+written in a `GET EDIT` or `PUT EDIT` statement.  The
+`A` format is used to write a character string, `E` and `F`
+to write numeric values, etc.  Some format items like
+`SKIP` and `TAB` don't correspond to any value.
 
 *level number*:  Because braces are not used in PL/I,
 the name of a top-level structure is prefixed by 1
@@ -78,7 +86,12 @@ level 2 is itself a structure or union, it is prefixed
 by 3, and so on.  The numbers 1, 2, 3 do not have to be
 consecutive: 10, 20, 30 is equivalent.
 
-*list-directed I/O*: 
+*list-directed I/O*: Formatted I/O where you don't get
+to decide what the format is.  Specifically, the data
+are read or written in the form of a literal, except that
+when you write to `sysprint` or any file with the `PRINT`
+attribute, a character string is written
+without apostrophes.
 
 *locator variable*:  Either a pointer or an offset.
 
