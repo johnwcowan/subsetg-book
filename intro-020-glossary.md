@@ -30,9 +30,9 @@ statically or automatically allocated.  Its storage can be
 allocated and deallocated dynamically from the heap.
 
 *begin-block*: A sequence of statements starting with `BEGIN`
-and ending with `END`.  Usually a begin-block begins with some
+and ending with `END`.  Usually a begin-block contains some
 declarations, which are otherwise only allowed at the
-beginning of a procedure.
+procedure level.
 
 *bit string*: A sequence of bits.  There are several ways to
 write such a string: `'1011011011101010'B` (binary) =
@@ -64,7 +64,14 @@ whose value is specified by a `VALUE` attribute.
 variable is one that occupies the same storage as another
 variable.  Analogous to, but not the same as, a union.
 
-*do-group, do-loop*:
+*do-group, do-loop*: A sequence of statements beginning
+with `DO` and ending with `END`.  Like a begin-block,
+it's the PL/I version of braces, but unlike a begin-block,
+a do-group can't have declarations.  What it can have
+is looping controls such as `DO WHILE x < 5;` or
+`DO i = 1 TO 5;`, in which case it is a do-loop rather
+than a do-group.
+
 
 *edit-directed I/O*: Formatted I/O as performed by the
 `GET EDIT` and `PUT EDIT` statements.  These statements
@@ -82,7 +89,7 @@ to write numeric values, etc.  Some format items like
 *level number*:  Because braces are not used in PL/I,
 the name of a top-level structure is prefixed by 1
 and its members are prefixed by 2.  If a member at
-level 2 is itself a structure or union, it is prefixed
+level 2 is itself a structure or union, its members are prefixed
 by 3, and so on.  The numbers 1, 2, 3 do not have to be
 consecutive: 10, 20, 30 is equivalent.
 
@@ -123,9 +130,21 @@ depending on its numeric value.
 on the heap.  In order to use a pointer, it is necessary
 to specify a based variable which gives its type.
 
+*restricted expression*:  An expression whose value is
+known at compile time.  It can be used to specify the
+bounds of an array that is static, a procedure argument,
+or a procedure return, as well as the value of a `EFINE
+CONSTANT` declaration.
+
 *string*:  Either a character string or a bit string.
 There are a number of functions that operate on either kind
 of string: for example, `SUBSTR('foobar', 1, 4)` is the
 character string `foob`, whereas `SUBSTR('101001'B, 1, 4)`
 is the bit string `'1010'B`.
+
+*¬*: The logical "not" symbol, the only non-ASCII character
+used in PL/I.  As a unary operator, it means "not"; as a binary
+operator, it means "exclusive or".  It can also be used in
+the relational operators `¬=`, `¬<`, and `¬<`, which are equivalent
+to `<>`, `>=`, and `<=`.
 
