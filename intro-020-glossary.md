@@ -117,13 +117,13 @@ but rather than being absolute, it is relative to an area.
 It is possible to copy an area and then use offsets to
 refer to objects allocated within either area.
 
-*picture data*:  Fixed decimal data which has a particular
-character string representation.
+*picture data*:  Fixed decimal data which has a
+particular character string representation.
 If a variable foo is declared as either
 `FIXED DECIMAL(5,2)` or `PICTURE '$-999V99'`,
-it has a range of -999.99 to 999.99 inclusive,
-but the picture data has a character string representation
-from `$-999.99` to `$0` to `$999.99`,
+it will have a numerical range of -999.99 to 999.99 inclusive,
+but the picture data has a character string
+representation from `$-999.99` to `$0` to `$999.99`,
 depending on its numeric value.
 
 *pointer*:  An untyped reference to an object allocated
@@ -133,7 +133,7 @@ to specify a based variable which gives its type.
 *restricted expression*:  An expression whose value is
 known at compile time.  It can be used to specify the
 bounds of an array that is static, a procedure argument,
-or a procedure return, as well as the value of a `EFINE
+or a procedure return, as well as the value of a `DEFINE
 CONSTANT` declaration.
 
 *string*:  Either a character string or a bit string.
