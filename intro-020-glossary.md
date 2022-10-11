@@ -1,4 +1,4 @@
-## What does that mean?  No, wait, I _know_ what that means, and ...
+## What does that mean?  No, wait, I _know_ what that means, but ...
 
 This glossary is deliberately not comprehensive.  There's no real
 reason to define *statement*, because it means the same thing
@@ -23,7 +23,7 @@ variable or named constant.  There are 45 attributes in PL/I.
 *arithmetic type*: A binary fixed (integer), decimal fixed,
 binary float, or decimal float numeric type.  The decimal
 types use base-10 digits rather than base-2 bits to represent
-the values.  Picture data is also of an arithmetic type.
+the values.  Picture data is also an arithmetic type.
 
 *based variable*: A storage class for a variable that isn't
 statically or automatically allocated.  Its storage can be
@@ -119,7 +119,7 @@ refer to objects allocated within either area.
 
 *picture data*:  Fixed decimal data which has a
 particular character string representation.
-If a variable foo is declared as either
+If a variable is declared as either
 `FIXED DECIMAL(5,2)` or `PICTURE '$-999V99'`,
 it will have a numerical range of -999.99 to 999.99 inclusive,
 but the picture data has a character string
