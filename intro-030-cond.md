@@ -83,7 +83,7 @@ a space before "your new balance".)
 The `SELECT` statement is the analogue of `switch` in other languages.
 There are two formats, one with a value after `SELECT` and one without.
 
-## First `SELECT` format
+### First `SELECT` format
 
 ```
 SELECT(language);
@@ -135,7 +135,7 @@ We can use the `ANY` and `ALL` keywords:
 
 ```
 SELECT;
-  WHEN ALL(a < 0, b < 0)
+  WHEN ALL (a < 0, b < 0)
     PUT EDIT ('a and b are both negative') (A, SKIP);
   WHEN ANY (a < 0, b < 0)
     PUT EDIT ('a is negative or b is negative, but not both')
