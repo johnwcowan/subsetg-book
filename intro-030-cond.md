@@ -1,7 +1,7 @@
 ## The `IF` statement
 
 The simplest conditional is the `IF` statement, which
-is like everyone else's `IF statement except for the
+is like everyone else's `IF` statement except for the
 keyword `THEN`.  By using `THEN` we can avoid having
 to enclose the conditional expression in parentheses.
 
@@ -80,7 +80,7 @@ need a space before "your new balance".
 The `SELECT` statement is the analogue of `switch` in other languages.
 There are two formats, one with a value after `SWITCH` and one without.
 
-##@ First `SELECT` format
+## First `SELECT` format
 
 ```
 SELECT(language);
