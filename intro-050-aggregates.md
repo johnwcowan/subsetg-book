@@ -66,28 +66,38 @@ If such a table has asterisk bounds,
 ## Structures
 
 Whereas arrays came from the Fortran side of PL/I, structures
-came from the Cobol side, and they are a little more different
+came from the Cobol side, and are they quite a bit different
 from the structs and classes of C-family languages.  Cobol
 doesn't have braces either: it uses level numbers instead.
 Here's an example:
 
 ```
-DECLARE 1 rectangle
-  2 upper_left
-    3 x
-    3 y
-  2 upper_right
-    3 x
-    3 y
-  2 lower_left
-    3 x
-    3 y
-  2 lower_right
-    3 x
-    3 y;
+DECLARE 1 rectangle,
+  2 upper_left,
+    3 x FLOAT BINARY(23),
+    3 y FLOAT BINARY(23),
+  2 upper_right,
+    3 x FLOAT BINARY(23),
+    3 y FLOAT BINARY(23),
+  2 lower_left,
+    3 x FLOAT BINARY(23),
+    3 y FLOAT BINARY(23),
+  2 lower_right,
+    3 x FLOAT BINARY(23),
+    3 y FLOAT BINARY(23);
 ```
 
 Note that this isn't a *type* of structure, it's a specific
 named structure, just as the `table` declaration at the
 beginning of the section on arrays is a specific array.
 I'll talk about how to declare types of structures later on.
+
+It would be fine to use the numbers 10, 20, and 30 instead,
+which would make it easier to add new structure levels.
+
+FLOAT BINARY is just the ordinary floating-point type called
+`float`, which has a precision of 23 bits.  If the value were
+larger (up to 53 bits) it would be a `double`.  At least this
+is true on machines with IEEE floating point, which pretty
+much means everything except IBM mainframes.
+
