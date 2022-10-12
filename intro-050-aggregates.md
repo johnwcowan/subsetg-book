@@ -66,7 +66,7 @@ If such a table has asterisk bounds,
 ## Structures
 
 Whereas arrays came from the Fortran side of PL/I, structures
-came from the Cobol side, and are they quite a bit different
+came from the Cobol side, and they are quite a bit different
 from the structs and classes of C-family languages.  Cobol
 doesn't have braces either: it uses level numbers instead.
 Here's an example:
