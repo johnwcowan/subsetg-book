@@ -10,9 +10,10 @@ Suppose we want to print the numbers 1 through 5 inclusive, each
 on its own line.  Here's one way to do it:
 
 ```
+digit_line: FORMAT(F(1), SKIP);
 DECLARE i FIXED BINARY(15);
 DO i = 1 TO 5;
-  PUT EDIT (i) (F(1), SKIP);
+  PUT EDIT (i) (R(digit_line));
 END;
 ```
 
@@ -21,6 +22,11 @@ The range of values specifed by `(15)` is that of a 16-bit integer:
 from -32767 to 32767.  All PL/I values are signed, so the sign bit
 is not included in the declaration.  If we left off the `(15)`,
 our PL/I implementation would choose a default range of values.
+
+The `FORMAT` statement lets you give a name to a list of format items.
+The `R` format item is used to refer to a `FORMAT` statement by its
+label.  We're going to refer to the same `FORMAT` statement in the
+following examples as well.
 
 If we want instead to print the numbers 1, 3, and 5, we can add
 `BY 2` either before or after `TO 5`.  This illustrates a general
@@ -40,7 +46,7 @@ Here's another approach to doing the same thing:
 ```
 DECLARE i FIXED BINARY(15) INITIAL(1);
 DO WHILE i <= 5;
-  PUT EDIT (i) (F(1), SKIP);
+  PUT EDIT (i) (R(digit_line));
   I = I + 1;
 END;
 ```
@@ -85,7 +91,7 @@ of the loop we keep providing:
 
 ```
 DO i = 1 REPEAT i + 1;
-  PUT EDIT (i) (F(1), SKIP);
+  PUT EDIT (i) (R(digit_line));
 END;
 ```
 
@@ -94,7 +100,7 @@ The bug, of course, is that this loop is infinite.  By adding a `WHILE`
 
 ```
 DO i = 1 REPEAT i + 1 WHILE i <= 5;
-  PUT EDIT (i) (F(1), SKIP);
+  PUT EDIT (i) (R(digit_line));
 END;
 ```
 
@@ -114,7 +120,7 @@ DECLARE v FIXED BINARY;
 DO LOOP;
   v = next_value();
   IF v = 0 THEN LEAVE;
-  PUT EDIT (v) (F(5), SKIP);
+  PUT EDIT (v) (R(digit_line));
 END;
 ```
 
@@ -130,13 +136,3 @@ outer: DO i = 1 TO 5;
   END;
 END;
 ```
-
-### The `ITERATE` statement
-
-`ITERATE` is equivalent to `continue`: it jumps down to the end
-of the current loop.  By using a label, it can jump down to the
-end of an outer loop rather than the innermost loop.
-
-
-
-
