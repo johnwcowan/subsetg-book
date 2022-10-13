@@ -86,6 +86,8 @@ written in a `GET EDIT` or `PUT EDIT` statement.  The
 to write numeric values, etc.  Some format items like
 `SKIP` and `TAB` don't correspond to any value.
 
+*group*: Either a do-group or a select-group.
+
 *level number*:  Because braces are not used in PL/I,
 the name of a top-level structure is prefixed by 1
 and its members are prefixed by 2.  If a member at
@@ -135,6 +137,11 @@ known at compile time.  It can be used to specify the
 bounds of an array that is static, a procedure argument,
 or a procedure return, as well as the value of a `DEFINE
 CONSTANT` declaration.
+
+*select-group*:  A sequence of statements beginning with a 
+`SELECT` statement and ending with an `END` statement.
+Unlike a do-group, a select-group can only contain `WHEN`
+statements and an optional `OTHERWISE` statement at the end.
 
 *string*:  Either a character string or a bit string.
 There are a number of functions that operate on either kind
