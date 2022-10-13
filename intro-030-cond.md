@@ -78,9 +78,14 @@ can be returned.  As a matter of style, a procedure should not use both methods.
 (A line break within a character string is completely ignored, so I added
 a space before "your new balance".)
 
-## The `SELECT` statement
+## Select-groups
 
-The `SELECT` statement is the analogue of `switch` in other languages.
+Select-groups are the analogue of `switch` statements in other languages.
+A select-group begins with a `SELECT` statement and ends with an
+`END` statement.  Unlike a do-group, which can contain almost any
+statement, select-groups can only contain `WHEN` statements and
+a single optional `OTHERWISE` statement as the last statement.
+
 There are two formats, one with a value after `SELECT` and one without.
 
 ### First `SELECT` format
@@ -100,18 +105,22 @@ SELECT(language);
 END;
 ```
 
-We can use the `ANY` keyword to allow multiple values in a `WHEN` clause.
+We can use the `ANY` keyword to allow multiple values
+in a `WHEN` clause.
 
 ```
 SELECT(i)
   WHEN ANY(1, 2, 3)
-    PUT EDIT ('One, two, or three') (A, SKIP);
+    PUT EDIT ('One, two, or three') (L);
   WHEN ANY(4)
     PUT EDIT ('Four') (A, SKIP);
   WHEN ANY(5, 6, 7)
-    PUT EDIT ('Five, six, or seven') (A, SKIP);
+    PUT EDIT ('Five, six, or seven') (L);
 END:
 ```
+The `L` format item is equivalent to `A`, except
+that you can't specify a length, and it always
+outputs a line terminator after the string.
 
 Note that instead of `ANY(4)` we could use just `(4)`.
 
@@ -123,11 +132,11 @@ If there is no value after the `SELECT` keyword`, the
 ```
 SELECT;
   WHEN (b < 0)
-    PUT EDIT ('b is negative') (A, SKIP);
+    PUT EDIT ('b is negative') (L);
   WHEN (b > 0)
-    PUT EDIT ('b is positive') (A, SKIP);
+    PUT EDIT ('b is positive') (L);
   OTHERWISE
-    PUT EDIT ('b is zero') (A, SKIP);
+    PUT EDIT ('b is zero') (L);
 END;
 ```
 
@@ -136,12 +145,12 @@ We can use the `ANY` and `ALL` keywords:
 ```
 SELECT;
   WHEN ALL (a < 0, b < 0)
-    PUT EDIT ('a and b are both negative') (A, SKIP);
+    PUT EDIT ('a and b are both negative') (L);
   WHEN ANY (a < 0, b < 0)
     PUT EDIT ('a is negative or b is negative, but not both')
-             (A, SKIP);
+             (L);
   OTHERWISE
-    PUT EDIT ('neither a nor b is negative') (A, SKIP);
+    PUT EDIT ('neither a nor b is negative') (L);
 END;
 ```
 
@@ -149,9 +158,8 @@ Just as in `switch` statements, the `WHEN` clauses are
 tested in order, so that the `WHEN ANY` clause is never checked
 if both a and b are negative.
 
-If you need more than one statement in a `WHEN` clause,
+If you need more than one statement in a `WHEN` statement,
 wrap them in a do-group.
 
-It's legal, but unusual, to use an `ALL` clause
-in the first format.
+It's legal, but unusual, to use `ALL` in the first format.
 
