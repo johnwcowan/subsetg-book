@@ -22,7 +22,7 @@ than the ASCII set; there weren't any square brackets
 on keypunches.  As for the sequence of bracketed indexes,
 that was inherited by C from its ancestral languages B
 and BCPL and from there to the other C-family languages.
-Fortran used commas and so does PL/I.
+Fortran uses commas to separate dimensions and so does PL/I.
 
 But we can go further.  Suppose we want to write a
 multiplication-table procedure and pass a table into it.
@@ -91,6 +91,14 @@ Note that this isn't a *type* of structure, it's a specific
 named structure, just as the `table` declaration at the
 beginning of the section on arrays is a specific array.
 I'll talk about how to declare types of structures later on.
+In any case, if we want to set the
+upper left corner's x-coordinate to 20, the assignment
+`rectangle.upper_left.x = 20` does the job, and so
+on for the x and y coordinates of the four corners.
+Note that this rectangle is redundant: the upper left
+x-coordinate should be equal to the upper right x-coordinate,
+and the upper left y-coordinate should be the same as the
+lower left y-coordinate.
 
 It would be fine to use the numbers 10, 20, and 30 instead,
 which would make it easier to add new structure levels.
@@ -100,4 +108,27 @@ FLOAT BINARY is just the ordinary floating-point type called
 larger (up to 53 bits) it would be a `double`.  At least this
 is true on machines with IEEE floating point, which pretty
 much means everything except IBM mainframes.
+
+## Unions
+
+Here's a union:
+
+```
+DECLARE 1 animal UNION,
+  2 dog,
+    3 weight FIXED DECIMAL,
+    3 height FIXED DECIMAL,
+    3 bark CHARACTER,
+  2 cat,
+    3 weight FIXED DECIMAL,
+    3 height FIXED DECIMAL,
+    3 meow CHARACTER;
+```
+
+This structure allocates the `cat` and `dog` substructures in the same location.
+Dogs have a bark, cats have a meow.  If we want to refer to a dog's weight,
+it's `animal.dog.weight`, but we can refer to a dog's bark as `animal.bark`,
+because that name is unambiguous.  Of course `animal.dog.bark` is fine too.
+CHARACTER is the type name of character strings, so we can assign a dog's
+bark as `animal.bark = 'Arf!';`.
 
