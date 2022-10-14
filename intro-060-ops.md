@@ -42,8 +42,8 @@ x = 30;
 
 contains an implicit conversion, because all numeric constants are
 either `FLOAT DECIMAL` if they contain an exponent like `1.23e2`
-or `FIXED DECIMAL` if they don't.  But it goes beyond that.  Consider
-this procedure:
+or `FIXED DECIMAL` if they don't.  But conversion goes beyond that.
+Consider this procedure:
 
 ```
 quadratic_formula: PROCEDURE(a, b, c, root1, root2);
@@ -55,7 +55,7 @@ END;
 
 This uses double-precision binary floating point (on an IEEE system),
 but the `FIXED DECIMAL` constant 2 is properly converted, and
-if you call it thus:
+if you call the procedure thus:
 
 ```
 DECLARE (root1, root2) FIXED BINARY(53);
@@ -72,8 +72,12 @@ and `FREE` because every statement except an assignment always
 begins with a keyword and an assignment doesn't look like
 any other statement.)
 
-Strings also participate in conversion.  We can
-rewrite our first example like this:
+Picture data, which I haven't discussed yet, is treated as
+`FIXED DECIMAL`; the only difference is that it is converted
+to character strings differently.
+
+Speaking of which, strings also participate in conversion.
+We can rewrite our first example like this:
 
 ```
 DECLARE x FIXED BINARY;
@@ -127,4 +131,17 @@ of course, a `FIXED DECIMAL` value.  On the other hand, `3 || '4'`
 is `34`.  This is why PL/I doesn't represent string concatenation
 with `+` as Python and JavaScript do.  The details of the five
 arithmetic operators `+`, `-`, `*`, `/`, and `**` are given
-elsewhere in this book, but the following rules are good approximations:
+elsewhere in this book, but the following rules are correct
+though not complete:
+
+ * If both arguments are `DECIMAL` and either one is `FLOAT`,
+   the result is `FLOAT DECIMAL`.
+   
+ * Otherwise, if either argument is `FLOAT`,
+   the result is `FLOAT BINARY`.
+   
+ * Otherwise, if both arguments are `FIXED DECIMAL`,
+   the result is `FIXED DECIMAL`.
+   
+ * Otherwise, the result is `FIXED BINARY`.
+ 
