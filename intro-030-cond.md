@@ -10,9 +10,12 @@ show_balance: PROCEDURE(balance);
   DECLARE balance FIXED DECIMAL(16,2);
   PUT EDIT ('Your balance is `, balance) (A, F17.2, SKIP);
   IF balance < 0 THEN
-    PUT EDIT ('You are overdrawn!!') (A, SKIP);
+    PUT EDIT ('You are overdrawn!!',
+              'You can''t withdraw anything.')
+             (A, SKIP, A, SKIP);
 END;
 ```
+
 Everything should be obvious here except the declaration
 of `balance`.  Rather than being in the `PROCEDURE` statement,
 it is placed between the `PROCEDURE` and `END` statements, as
@@ -45,7 +48,8 @@ The output will be left-padded with blanks.
 
 (The `PUT EDIT` statement in the `hello_world` procedure specified
 `FILE(sysprint)` in order to write to the standard output.
-That's the default, so I've left it out here.)
+That's the default, so I've left it out here.  And to get the
+apostrophe in `can't` into the string, it gets doubled.)
 
 Here's a more complex example. There are a few new things here,
 notably the use of a do-group to have more than one statement
