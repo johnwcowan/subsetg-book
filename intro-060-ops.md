@@ -69,7 +69,8 @@ then the first two arguments are `FIXED DECIMAL` and the third is
 Suppose you decided to name a procedure `free`.  That happens
 to be a keyword, but there will be no collision between `free`
 and `FREE` because every statement except an assignment always
-begins with a keyword.)
+begins with a keyword and an assignment doesn't look like
+any other statement.)
 
 Strings also participate in conversion.  We can
 rewrite our first example like this:
@@ -91,8 +92,8 @@ x = '11110'B
 
 will likewise assign 30 to x.
 
-Conversion between bit and character strings operates at the element
-level:
+Conversion between bit and character strings operates
+at the element level:
 
 ```
 DECLARE x BIT(5);
@@ -119,6 +120,11 @@ true is the 1-bit string `'1'B` and false is the 1-bit string `'0'B`.
 As a consequence of the rules above, these automatically convert
 to 1 and 0 if used in an arithmetic context.
 
+### Operator conversion
 
-
-  
+The operators involve conversions too.  What is `3 + '4'`?  Why, `5`,
+of course, a `FIXED DECIMAL` value.  On the other hand, `3 || '4'`
+is `34`.  This is why PL/I doesn't represent string concatenation
+with `+` as Python and JavaScript do.  The details of the five
+arithmetic operators `+`, `-`, `*`, `/`, and `**` are given
+elsewhere in this book, but the following rules are good approximations:
