@@ -1,9 +1,9 @@
-## The `IF` statement
+## The `IF`-`THEN` statement
 
-The simplest conditional is the `IF` statement, which
-is like everyone else's `IF` statement except for the
-keyword `THEN`.  By using `THEN` we can avoid having
-to enclose the conditional expression in parentheses.
+The simplest conditional is the `IF`-`THEN` statement.
+In PL/I, the conditional expression does not need parentheses
+as in some other languages. Instead, everything between `IF`
+and `THEN` is taken as the condition.
 
 ```
 show_balance: PROCEDURE(balance);
@@ -20,10 +20,8 @@ Everything should be obvious here except the declaration
 of `balance`.  Rather than being in the `PROCEDURE` statement,
 it is placed between the `PROCEDURE` and `END` statements, as
 in old-style C.
-(I have put the declaration first, as is usual,
-but actually PL/I allows a declaration
-to come anywhere within its procedure or begin-block,
-and a variable can in fact be used before it is declared.)
+(I have put the declaration first, the usual convention. Actually,
+it can legally be put anywhere in the procedure, but it's poor style.)
 
 What is `FIXED DECIMAL`?  It's one of PL/I's four main arithmetic types.
 It isn't like anything in most programming languages today, but it
