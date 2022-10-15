@@ -8,6 +8,6 @@ The "dict" section is a dictionary of the PL/I statements,
 attributes, conditions, and built-in functions defined in Subset G.
 
 The audience for this book is someone who knows a statically typed
-imperative programming language such as C, C++, or Java.
+imperative programming language such as C, C++, Java, or C#.
 No prior knowledge of PL/I is assumed.
 

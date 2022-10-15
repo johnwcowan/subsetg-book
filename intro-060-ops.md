@@ -118,7 +118,7 @@ same as converting between an arithmetic and a bit string:
 converts to the number 7 and vice versa.
 
 In C and C++, the value of the comparison operators shown above is
-`0` for false and `1` for true, whereas in Java they are the
+`0` for false and `1` for true, whereas in Java and C# they are the
 special boolean constants `true` and `false`.  In PL/I, however,
 true is the 1-bit string `'1'B` and false is the 1-bit string `'0'B`.
 As a consequence of the rules above, these automatically convert
