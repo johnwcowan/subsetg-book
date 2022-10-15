@@ -1,35 +1,37 @@
 ## Arithmetic built-in functions
 
-### `ABS` bif
+### `ABS` built-in function
 
-### `BINARY` bif
+### `ADD` built-in function
 
-### `CEIL` bif
+### `BINARY` built-in function
 
-### `DECIMAL` bif
+### `CEIL` built-in function
 
-### `DIVIDE` bif
+### `DECIMAL` built-in function
 
-### `EDIT` bif
+### `DIVIDE` built-in function
 
-### `FIXED` bif
+### `EDIT` built-in function
 
-### `FLOAT` bif
+### `FIXED` built-in function
 
-### `FLOOR` bif
+### `FLOAT` built-in function
 
-### `MAX` bif
+### `FLOOR` built-in function
 
-### `MIN` bif
+### `MAX` built-in function
 
-### `MOD` bif
+### `MIN` built-in function
 
-### `MULTIPLY` bif
+### `MOD` built-in function
 
-### `SIGN` bif
+### `MULTIPLY` built-in function
 
-### `SUBTRACT` bif
+### `SIGN` built-in function
 
-### `ROUND` bif
+### `SUBTRACT` built-in function
 
-### `TRUNC` bif
+### `ROUND` built-in function
+
+### `TRUNC` built-in function

@@ -1,30 +1,30 @@
 ## Math built-in functions
 
-### `ACOS` bif
+### `ACOS` built-in function
 
-### `ASIN` bif
+### `ASIN` built-in function
 
-### `ATAN`, `ATAND` bifs
+### `ATAN`, `ATAND` built-in functions
 
-### `ATANH` bif
+### `ATANH` built-in function
 
-### `COS`, `COSD` bifs
+### `COS`, `COSD` built-in functions
 
-### `COSH` bif
+### `COSH` built-in function
 
-### `EXP` bif
+### `EXP` built-in function
 
-### `EXPONENT` bif
+### `EXPONENT` built-in function
 
-### `LOG`, `LOG2, `LOG10` bifs
+### `LOG`, `LOG2, `LOG10` built-in functions
 
-### `SIN`, `SIND` bifs
+### `SIN`, `SIND` built-in functions
 
-### `SINH` bif
+### `SINH` built-in function
 
-### `SQRT` bif
+### `SQRT` built-in function
 
-### `TAN`, `TAND` bifs
+### `TAN`, `TAND` built-in functions
 
-### `TANH` bif
+### `TANH` built-in function
 

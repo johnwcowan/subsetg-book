@@ -1,47 +1,56 @@
-## Miscellaneous bifs
+## Miscellaneous built-in functions
 
-### Date bifs
+### Date built-in functions
 
-### `DATE` bif
+### `DATE` built-in function
 
-### `DATETIME` bif
+### `DATETIME` built-in function
 
-### `TIME` bif
+### `TIME` built-in function
 
-### Exception bifs
+### Exception built-in functions
 
-### `ONCODE` bif
+### `ONCODE` built-in function
 
-### `ONFILE` bif
+### `ONFILE` built-in function
 
-### `ONKEY` bif
+### `ONKEY` built-in function
 
-### `ONSOURCE` bif
+### `ONSOURCE` built-in function
 
-### Aggregate bifs
+### Aggregate built-in functions
 
-### `COPY` bif
+### `COPY` built-in function
 
-### `DIMENSIONS` bif
+### `DIMENSION` built-in function
 
-### `EVERY`, `SOME` bifs
+### `EVERY`, `SOME` built-in functions
 
-### `HBOUND`, `LBOUND` bifs
+### `HBOUND`, `LBOUND` built-in functions
 
-### `IDENTITY` bif
+### `IDENTICAL` built-in function
 
-### `NULL` bif
+### `SUM`, `PROD` built-in functions
 
-### Storage bifs
+### Storage built-in functions
 
-### `AREA` bif
+### `ADDR` built-in function
 
-### `CURRENTSIZE` bif
+### `CURRENTSIZE` built-in function
 
-### `EMPTY` bif
+### `EMPTY` built-in function
 
-### `NULL` bif
+### `NULL` built-in function
 
-### `OFFSET` bif
+### `OFFSET` built-in function
 
-### `POINTER` bif
+### `POINTER` built-in function
+
+### File built-in functions
+
+### `FILEOPEN` built-in function
+
+### `LINENO` built-in function
+
+### `PAGENO` built-in function
+

@@ -1,41 +1,41 @@
-## String bifs
+## String built-in functions
 
-### `BIT` bif
+### `BIT` built-in function
 
-### `BOOL` bif
+### `BOOL` built-in function
 
-### `CHARACTER` bif
+### `CHARACTER` built-in function
 
-### `COLLATE` bif
+### `COLLATE` built-in function
 
-### `HIGH` bif
+### `HIGH` built-in function
 
-### `INDEX bif
+### `INDEX built-in function
 
-### `ISOCHAR` bif
+### `ISOCHAR` built-in function
 
-### `LENGTH` bif
+### `LENGTH` built-in function
 
-### `LOW` bif
+### `LOW` built-in function
 
-### `MAXLENGTH` bif
+### `MAXLENGTH` built-in function
 
-### `REVERSE` bif
+### `REVERSE` built-in function
 
-### `SEARCH` bif
+### `SEARCH` built-in function
 
-### `STRING` bif
+### `STRING` built-in function
 
-### `SUBSTR` bif
+### `SUBSTR` built-in function
 
-### `TALLY` bif
+### `TALLY` built-in function
 
-### `TRANSLATE` bif
+### `TRANSLATE` built-in function
 
-### `TRIM` bif
+### `TRIM` built-in function
 
-### `UNSPEC` bif
+### `UNSPEC` built-in function
 
-### `VALID` bif
+### `VALID` built-in function
 
-### `VERIFY` bif
+### `VERIFY` built-in function
