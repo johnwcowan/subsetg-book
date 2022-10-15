@@ -20,37 +20,35 @@
 
 ### Aggregate built-in functions
 
-### `COPY` built-in function
+### `DIMENSION(array[, int])` built-in function
 
-### `DIMENSION` built-in function
+### `HBOUND(array[, int])`, `LBOUND(array[, int])` built-in functions
 
-### `EVERY`, `SOME` built-in functions
+### `IDENTICAL(array1, array2)` built-in function
 
-### `HBOUND`, `LBOUND` built-in functions
+### `STRING` built-in function
 
-### `IDENTICAL` built-in function
-
-### `SUM`, `PROD` built-in functions
+### `SUM(array)`, `PROD(array)` built-in functions
 
 ### Storage built-in functions
 
-### `ADDR` built-in function
+### `ADDR(variable)` built-in function
 
-### `CURRENTSIZE` built-in function
+### `CURRENTSIZE(variable)` built-in function
 
 ### `EMPTY` built-in function
 
 ### `NULL` built-in function
 
-### `OFFSET` built-in function
+### `OFFSET(pointer, area)` built-in function
 
-### `POINTER` built-in function
+### `POINTER(offset, area)` built-in function
 
 ### File built-in functions
 
-### `FILEOPEN` built-in function
+### `FILEOPEN(file)` built-in function
 
-### `LINENO` built-in function
+### `LINENO(file)` built-in function
 
-### `PAGENO` built-in function
+### `PAGENO(file)` built-in function
 

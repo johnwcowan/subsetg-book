@@ -1,30 +1,30 @@
 ## Math built-in functions
 
-### `ACOS` built-in function
+### `ACOS(arith)` built-in function
 
-### `ASIN` built-in function
+### `ASIN(arith)` built-in function
 
-### `ATAN`, `ATAND` built-in functions
+### `ATAN(arith2[, arith1])`, `ATAND(arith2[, arith1])` built-in functions
 
-### `ATANH` built-in function
+### `ATANH(arith)` built-in function
 
-### `COS`, `COSD` built-in functions
+### `COS(arith)`, `COSD(arith)` built-in functions
 
-### `COSH` built-in function
+### `COSH(arith)` built-in function
 
-### `EXP` built-in function
+### `EXP(arith)` built-in function
 
-### `EXPONENT` built-in function
+### `EXPONENT(float)` built-in function
 
-### `LOG`, `LOG2, `LOG10` built-in functions
+### `LOG(arith)`, `LOG2(arith)`, `LOG10(arith)` built-in functions
 
-### `SIN`, `SIND` built-in functions
+### `SIN(arith)`, `SIND(arith)` built-in functions
 
-### `SINH` built-in function
+### `SINH(arith)` built-in function
 
-### `SQRT` built-in function
+### `SQRT(arith)` built-in function
 
-### `TAN`, `TAND` built-in functions
+### `TAN(arith)`, `TAND(arith)` built-in functions
 
-### `TANH` built-in function
+### `TANH(arith)` built-in function
 
