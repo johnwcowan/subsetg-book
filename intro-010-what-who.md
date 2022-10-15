@@ -14,19 +14,21 @@ of the Cobol-like features and vice versa.)  However, it remains both
 a programming language of historical interest and a working example of
 a different way of doing things.
 
-PL/I has been the topic of three ANSI standards: ANSI X3.53-1976,
-which represented the full PL/I language of its time; ANSI X3.74-1981,
-or Subset G (for "general purpose"), which was designed to be easier to
-implement and more portable between different implementations; and ANSI
-X3.74-1987, which removed some of the restrictions of the 1981 version
-and added some new features.
+PL/I has been the topic of three ANSI standards:
+ - (1976) ANSI X3.53-1976, which represented the full PL/I language of
+   its time
+ - (1981) ANSI X3.74-1981, or Subset G (for "general purpose"), which was
+   designed to be easier to implement and more portable between different
+   implementations
+ - (1987) ANSI X3.74-1987, which removed some of the restrictions of the
+   1981 version and added some new features.
 
 Most historic and current implementations provide at least the 1981
 standard with additional material from the 1976 and the 1987 standards;
 the IBM implementation in particular has been extended over time with many
-new features unique to itself.  This book is based on the 1987 standard;
-unless otherwise specified, "PL/I" in this book means this version of
-the language.
+new features unique to itself.  This book is based on the 1987 standard,
+Subset G. Unless otherwise specified, "PL/I" in this book means this
+version of the language.
 
 ## Who is the audience for this book?
 
@@ -37,7 +39,9 @@ to write, or at least read, a program in a statically typed imperative
 programming language such as C, C++, Java, or C#.
 
 My intention in writing this book is to describe the whole of PL/I
-Subset G, and so it may also be useful as a work of reference, although
+Subset G, a reasonable common, working version of the language which
+contains all important features and which is standard across compilers.
+This book may also be useful as a work of reference, although
 the official standard is the final arbiter in all cases of doubt.
 Unfortunately, the standard is especially difficult to read even
 as standards go; it consists of two BNF grammars, one concrete and
@@ -48,15 +52,15 @@ which is also code written in prose.
 So in order not to bury you, the reader, in too much detail all at once,
 this introductory section is intended to teach you some PL/I without
 *too* many tears. The dictionary section spells out the detail for each
-of the large number of features of the language, large primarily because
-the line between "the language" and "the library" is set further out
-than in most languages today.
+of the large number of features of the language. Large, primarily because
+many features which would be part of "the library" today are part of
+"the language" in PL/I.
 
 ## Hello, world!
 
 Here's the familiar first program written in PL/I.  There are many
-possible ways to write it: this is not the shortest, but I believe
-it is the most illustrative without being too complicated.
+possible ways to write "Hello, world". This is not the shortest,
+but I believe it is the most illustrative.
 
 ```
 /* The classic "Hello, world!" program */
@@ -70,7 +74,9 @@ If you compile and run this program, it will send
 `Hello, world!` to the standard output.
 Let's look at this program token by token:
 
- * PL/I keywords are written in capital letters.
+ * PL/I keywords (ex. `PROCEDURE`, `OPTIONS`) are written
+   in capital letters. Identifiers (ex. `hello_world`,
+   `sysprint`) are written in lowercase letters.
    This is not a requirement of the language,
    but a convention used in this book.  PL/I does
    not distinguish identifiers by case, so the variables
