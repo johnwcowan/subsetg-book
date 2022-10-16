@@ -149,6 +149,10 @@ of string: for example, `SUBSTR('foobar', 1, 4)` is the
 character string `foob`, whereas `SUBSTR('101001'B, 1, 4)`
 is the bit string `'1010'B`.
 
+**union**: A variable or minor structure that can hold
+objects of more than one type or size, but only one
+at a time.
+
 **`¬`**: The logical "not" symbol, the only non-ASCII character
 used in PL/I.  As a unary operator, it means "not"; as a binary
 operator, it means "exclusive or".  It can also be used in
