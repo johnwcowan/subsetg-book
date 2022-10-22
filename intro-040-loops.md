@@ -39,7 +39,7 @@ are all equivalent to `FIXED BINARY(15)`.
 which is a 16-bit value with 3 bits to the right of the decimal point,
 but Subset G does not support binary fractions.)
 
-### `WHILE` loops
+### `DO-WHILE-END` loops
 
 Here's another approach to doing the same thing:
 
@@ -64,7 +64,7 @@ END;
 This loop will iterate at most five times, but will terminate
 when x is negative at the top of the loop.
 
-### `UNTIL` loops
+### `DO-UNTIL-END` loops
 
 ```
 DO UNTIL i > 5;
@@ -81,7 +81,7 @@ whereas the `UNTIL` loop will iterate at least once.
 A controlled loop can include an `UNTIL` part.  Furthermore,
 it can have both a `WHILE` part and an `UNTIL` part in either order.
 
-### `REPEAT` loops
+### `DO-REPEAT-END` loops
 
 A `REPEAT` loop is much like a `for` statement in other languages.
 It starts out with a variable and initial value like a controlled
@@ -108,7 +108,7 @@ As before, we can have an `UNTIL` part, or `WHILE` followed by `UNTIL`,
 or `UNTIL` followed by `WHILE`.  However, REPEAT must come before
 either `WHILE` or `UNTIL`.
 
-### `DO LOOP` and `LEAVE`
+### `DO-LOOP-END` and `LEAVE`
 
 Lastly, we have `DO LOOP;`, which is a deliberately infinite loop.
 Assuming we aren't writing a server or other program that really
