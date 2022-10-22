@@ -25,9 +25,6 @@
 9. And the lowest-priority operator is `|:` (logical "not").
 
 As usual, parentheses can override these operator priorities.
-Note in particular that unlike the `&&` and `||` operators
-of other languages, the PL/I `&:` and `|:` operators
-have different priorities from the `&` and `|` bitwise operators.
 
 ### Conversions
 
@@ -126,7 +123,7 @@ to 1 and 0 if used in an arithmetic context.
 
 ### Operator conversion
 
-The operators involve conversions too.  What is `3 + '4'`?  Why, `5`,
+The operators involve conversions too.  What is `3 + '4'`?  Why, `7`,
 of course, a `FIXED DECIMAL` value.  On the other hand, `3 || '4'`
 is `34`.  This is why PL/I doesn't represent string concatenation
 with `+` as Python and JavaScript do.  The details of the five

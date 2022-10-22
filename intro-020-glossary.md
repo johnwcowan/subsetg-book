@@ -11,6 +11,9 @@ The reason for putting it up front is so you have something
 to turn back to, and maybe have already seen, when you come
 across a term that you don't know or doesn't seem to make sense.
 
+**and then**: The `&|` operator, which accepts boolean operands
+and is guaranteed to evaluate the left argument first.
+
 *aggregate*: Either an array, a structure, or a union.
 
 *area*: A chunk of memory that serves as a subsidiary heap.
@@ -38,12 +41,12 @@ procedure level.
 write such a string: `'1011011011101010'B` (binary) =
 `'23123222'B2` (ternary) = `'133352'B3` (octal) = `'B6EA'B4` (hex).
 
-*bounds*: The lowest and highest possible values of any dimension
+*lower bound, upper bound*: The lowest and highest possible values of any dimension
 of an array.  An array `a(3:5)` has bounds of 3 and 5 in the first
 (and only) dimension.  If the lower bound is missing, it is 1,
-so `a(5)` is the same as `a(1:5)`.  This is different from
-other languages, where the lower bound is always 0 and the upper
-bound is 1 less than the length, so that `a[5]` has bounds of 0 and 4.
+so `a(5)` is the same as `a(1:5)`.  This is different from most
+other languages, where the lower bound is always 0 and the upper bound
+is 1 less than the length, so that `a[5]` has bounds of 0 and 4.
 
 *built-in function*:  One of a list of 83 functions that are a
 built-in part of PL/I.  They don't have to be declared, but can be.
@@ -118,6 +121,9 @@ as are the file constants `sysin` and `sysout`.
 but rather than being absolute, it is relative to an area.
 It is possible to copy an area and then use offsets to
 refer to objects allocated within either area.
+
+**or else**: The `|:` operator, which accepts boolean operands
+and is guaranteed to evaluate the left argument first.
 
 *picture data*:  Fixed decimal data which has a
 particular character string representation.
